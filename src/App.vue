@@ -1,7 +1,5 @@
 <template>
   <navbar-comp></navbar-comp>
-  <p>hp</p>
-  <a></a>
   <router-view></router-view>
 </template>
 
@@ -11,6 +9,7 @@ export default {
   components: {
     NavbarComp,
   },
+
 };
 </script>
 
