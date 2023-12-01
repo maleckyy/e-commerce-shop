@@ -3,15 +3,16 @@
     <div class="title">Featured Products</div>
     <div class="sub-title">Check out our latest products!</div>
     <div class="items-wrapper">
-      <card v-for="item in items" :item="item" :key="item.id" ></card>
+      <card v-for="item in items" :item="item" :key="item.id"></card>
     </div>
+  </div>
 </template>
 
 <script>
-import Card from './Card.vue'
+import Card from "./Card.vue";
 export default {
   components: {
-    card: Card
+    card: Card,
   },
   computed: {
     items() {
