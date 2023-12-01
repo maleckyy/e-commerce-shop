@@ -2,11 +2,9 @@
   <div class="products-container">
     <div class="title">Featured Products</div>
     <div class="sub-title">Check out our latest products!</div>
-
     <div class="items-wrapper">
       <card v-for="item in items" :item="item" :key="item.id" ></card>
     </div>
-  </div>
 </template>
 
 <script>
