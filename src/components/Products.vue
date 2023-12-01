@@ -3,10 +3,7 @@
     <div class="title">Featured Products</div>
     <div class="sub-title">Check out our latest products!</div>
 
-    <div class="items-wrapper">
-    
- 
-    </div>
+    <div class="items-wrapper"></div>
   </div>
 </template>
 
