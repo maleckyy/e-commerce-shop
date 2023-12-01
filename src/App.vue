@@ -1,4 +1,7 @@
-<template></template>
+<template>
+  <p>hp</p>
+  <router-view></router-view>
+</template>
 
 <script>
 export default {};
@@ -6,4 +9,7 @@ export default {};
 
 <style scoped>
 @import "./style.css";
+p {
+  color: var(--color-blue);
+}
 </style>
