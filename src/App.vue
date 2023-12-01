@@ -5,19 +5,7 @@
 </template>
 
 <script>
-export default {
-  computed: {
-    items() {
-      return this.$store.getters.getItems;
-    },
-  },
-  created() {
-    this.$store.dispatch("getItemsFromAPI");
-  },
-  mounted() {
-    console.log(this.items);
-  },
-};
+export default {};
 </script>
 
 <style scoped>
