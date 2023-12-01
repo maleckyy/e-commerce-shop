@@ -1,6 +1,5 @@
 <template>
   <div class="home-wrapper">
-    <div>homepage</div>
     <products></products>
   </div>
 </template>
