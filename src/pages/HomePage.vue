@@ -1,6 +1,8 @@
 <template>
-  <div>homepage</div>
-  <products></products>
+  <div class="home-wrapper">
+    <div>homepage</div>
+    <products></products>
+  </div>
 </template>
 
 <script>
@@ -10,4 +12,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.home-wrapper {
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+}
+</style>

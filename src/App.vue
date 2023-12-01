@@ -1,22 +1,19 @@
 <template>
-  <navbar></navbar>
+  <navbar-comp></navbar-comp>
   <p>hp</p>
   <a></a>
   <router-view></router-view>
 </template>
 
 <script>
-import NavbarComp from './components/NavbarComp.vue'
+import NavbarComp from "./components/NavbarComp.vue";
 export default {
   components: {
-    navbar: NavbarComp, 
-  }
+    NavbarComp,
+  },
 };
 </script>
 
 <style>
 @import "./style.css";
-p {
-  color: var(--color-blue);
-}
 </style>
