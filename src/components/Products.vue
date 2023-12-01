@@ -4,14 +4,17 @@
     <div class="sub-title">Check out our latest products!</div>
 
     <div class="items-wrapper">
-    
- 
+      <card v-for="item in items" :item="item" :key="item.id" ></card>
     </div>
   </div>
 </template>
 
 <script>
+import Card from './Card.vue'
 export default {
+  components: {
+    card: Card
+  },
   computed: {
     items() {
       return this.$store.getters.getItems;
@@ -50,7 +53,7 @@ export default {
 
 .item-wrapper {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
 }
 
 @media only screen and (max-width: 500px) {

@@ -9,7 +9,7 @@
 import NavbarComp from './components/NavbarComp.vue'
 export default {
   components: {
-    navbar: NavbarComp, 
+    navbar: NavbarComp,
   }
 };
 </script>
