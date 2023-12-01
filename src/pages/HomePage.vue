@@ -1,9 +1,13 @@
 <template>
   <div>homepage</div>
+  <products></products>
 </template>
 
 <script>
-export default {};
+import Products from "../components/Products.vue";
+export default {
+  components: { Products },
+};
 </script>
 
 <style></style>
