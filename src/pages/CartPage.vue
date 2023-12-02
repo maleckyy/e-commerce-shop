@@ -1,8 +1,10 @@
 <template>
   <div class="cart-wrapper">
     <div class="title">Your cart</div>
-    <div class="value">Cart value: {{ allItemsValue }} $</div>
-    <hr />
+    <div v-if="!isCartEmpty" class="value">
+      Cart value: {{ allItemsValue }} $
+    </div>
+    <hr v-if="!isCartEmpty" />
     <div class="items-wrapper">
       <!-- lista koszyka -->
       <cart-item
@@ -11,8 +13,9 @@
         :item="item"
       ></cart-item>
     </div>
-    <hr />
-    <button>Order</button>
+    <hr v-if="!isCartEmpty" />
+    <button v-if="!isCartEmpty">Order</button>
+    <div class="info">Your cart is empty.</div>
   </div>
 </template>
 
@@ -28,6 +31,13 @@ export default {
     },
     cartItems() {
       return this.$store.getters.getCartItems;
+    },
+    isCartEmpty() {
+      if (this.cartItems.length == 0) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
 };
@@ -46,6 +56,12 @@ export default {
   text-align: left;
   letter-spacing: 1px;
   margin-bottom: 0.7rem;
+}
+.info {
+  text-align: center;
+  font-family: var(--font-play);
+  color: var(--color-black);
+  font-size: 1rem;
 }
 .value {
   text-align: right;

@@ -1,58 +1,121 @@
 <template>
   <div class="card">
+    <font-awesome-icon
+      @click="navigateToDetails"
+      class="info"
+      icon="fa-solid fa-circle-info"
+    />
     <div class="img-div">
-      <img :src="item.image" alt="" />
+      <img :src="item.image" :alt="item.title" />
     </div>
-    <div class="item-title">
-      {{ item.title }}
-    </div>
-    <div class="item-values">
-      <div class="item-numbers">
-        <p>Rating: {{ item.rating.rate }}</p>
-        ${{ item.price }}
+    <div class="item-details">
+      <div class="item-title">
+        {{ item.title }}
       </div>
-      <!-- DODAC BUTTON KOSZYCZKA -->
+      <div class="price">$ {{ item.price }}</div>
+      <div class="rating">
+        <p>Rating: {{ item.rating.rate }} / ({{ item.rating.count }})</p>
+      </div>
     </div>
+    <button @click="addToCart">
+      <font-awesome-icon class="icon" icon="fa-solid fa-cart-plus" /> Add to
+      Cart
+    </button>
   </div>
 </template>
 
 <script>
 export default {
   props: ["item"],
+  methods: {
+    navigateToDetails() {
+      this.$router.push(`/products/${this.item.id}`);
+    },
+    addToCart() {
+      this.$store.commit("addToCart", this.item);
+    },
+  },
 };
 </script>
 
 <style scoped>
 .card {
-  border: 1px solid rgba(0, 0, 0, 0.312);
-  margin: auto;
-  padding: 15px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.079);
+  padding: 1rem;
   border-radius: 16px;
-  width: 225px;
-  height: 290px;
+  width: 280px;
+  height: 340px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  position: relative;
 }
+
 .img-div {
+  align-self: center;
   display: flex;
   align-items: center;
   color: var(--color-grey);
-  height: 7rem;
+  max-height: 9rem;
+  min-height: 7rem;
+  max-width: 8rem;
   overflow: hidden;
 }
 img {
-  margin: auto;
   max-width: 100%;
   max-height: 100%;
 }
 .item-title {
-  margin: 10px auto;
-  font-family: var(--font-play);
+  font-family: var(--font-mont);
   font-size: 1rem;
   font-weight: 600;
+  letter-spacing: -0.3px;
+  line-height: 120%;
 }
-.item-values {
+.rating {
   font-family: var(--font-mont);
-  font-weight: 600;
-  color: #216d68;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--color-grey);
+  align-self: flex-start;
+}
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  border: 2px solid var(--color-blue);
+  padding: 0.5rem 0.7rem;
+  color: var(--color-black);
+  font-family: var(--font-mont);
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 50px;
+  transition: all 0.2s;
+}
+button:hover {
+  color: var(--color-white);
+  transform: scale(1.02);
+  background-color: var(--color-blue);
+}
+.icon {
+  margin-right: 5px;
+}
+.price {
+  margin: 3px 0;
+  font-family: var(--font-mont);
+  font-weight: 500;
+}
+.info {
+  position: absolute;
+  color: var(--color-blue);
+  font-size: 1.2rem;
+  transition: all 0.2s;
+}
+.info:hover {
+  color: var(--color-blue-hover);
+  transform: scale(1.02);
 }
 p {
   font-family: var(--font-mont);

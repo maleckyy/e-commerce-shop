@@ -14,13 +14,18 @@ export default {
   components: {
     card: Card,
   },
+  methods: {
+    async loadData() {
+      await this.$store.dispatch("getItemsFromAPI");
+    },
+  },
   computed: {
     items() {
       return this.$store.getters.getItems;
     },
   },
   created() {
-    this.$store.dispatch("getItemsFromAPI");
+    this.loadData();
   },
   mounted() {
     console.log(this.items);
@@ -50,9 +55,13 @@ export default {
   text-align: center;
 }
 
-.item-wrapper {
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
+.items-wrapper {
+  margin: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
 }
 
 @media only screen and (max-width: 500px) {
