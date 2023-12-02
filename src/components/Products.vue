@@ -38,6 +38,10 @@ export default {
   max-width: 1080px;
   width: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .title {
   font-family: var(--font-play);
@@ -60,8 +64,9 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 1.2rem;
+  width: 90%;
 }
 
 @media only screen and (max-width: 500px) {

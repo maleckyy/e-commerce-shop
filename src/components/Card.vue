@@ -40,6 +40,7 @@ export default {
 
 <style scoped>
 .card {
+  align-self: flex-start;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.079);
   padding: 1rem;
   border-radius: 16px;
