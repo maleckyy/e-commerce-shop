@@ -85,7 +85,7 @@ button {
   align-items: center;
   justify-content: center;
   background: var(--color-white);
-  border: 2px solid var(--color-blue);
+  border: 1px solid var(--color-black);
   padding: 0.5rem 0.7rem;
   color: var(--color-black);
   font-family: var(--font-mont);
@@ -98,6 +98,7 @@ button:hover {
   color: var(--color-white);
   transform: scale(1.02);
   background-color: var(--color-blue);
+  border: 1px solid var(--color-blue);
 }
 .icon {
   margin-right: 5px;

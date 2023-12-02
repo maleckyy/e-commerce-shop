@@ -71,9 +71,5 @@ export default {
   .sub-title {
     font-size: 0.9rem;
   }
-  .item-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 </style>
