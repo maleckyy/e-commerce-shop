@@ -34,6 +34,9 @@ const store = createStore({
     getCartItems(state) {
       return state.cart;
     },
+    getCartItemsCount(state) {
+      return state.cart.length;
+    },
   },
 });
 

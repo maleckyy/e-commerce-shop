@@ -9,8 +9,13 @@
         <router-link class="hover-underline-animation" to="/">Shop</router-link>
       </li>
       <li>
-        <router-link to="/cart">
+        <router-link to="/cart" class="cart-item">
           <font-awesome-icon class="icon" icon="fa-solid fa-cart-shopping" />
+          <div class="counter">
+            <p>
+              {{ itemsCount }}
+            </p>
+          </div>
         </router-link>
       </li>
     </ul>
@@ -18,7 +23,23 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    itemsCount() {
+      const count = this.$store.getters.getCartItemsCount;
+      if (count > 9) {
+        return "9+";
+      } else {
+        return count;
+      }
+    },
+  },
+  watch: {
+    itemsCount(newValue, _) {
+      console.log(newValue);
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -41,6 +62,7 @@ ul {
 li {
   font-family: var(--font-mont);
   font-weight: 600;
+  font-size: 1.4rem;
 }
 a {
   text-decoration: none;
@@ -58,6 +80,35 @@ div.logo {
 }
 .icon:hover {
   transform: scale(1.1);
+}
+.cart-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.counter {
+  background-color: var(--color-blue);
+  font-family: var(--font-mont);
+  font-weight: 400;
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 3px;
+  font-size: 12px;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.counter > p {
+  padding: 1rem;
+}
+.active {
+  animation: pulse 1s ease-in;
 }
 
 .hover-underline-animation {
@@ -91,6 +142,18 @@ div.logo {
   }
   li {
     font-size: 0.8rem;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 </style>
