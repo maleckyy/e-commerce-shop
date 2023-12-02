@@ -107,9 +107,6 @@ div.logo {
 .counter > p {
   padding: 1rem;
 }
-.active {
-  animation: pulse 1s ease-in;
-}
 
 .hover-underline-animation {
   display: inline-block;
