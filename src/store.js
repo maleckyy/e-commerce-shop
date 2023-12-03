@@ -12,7 +12,30 @@ const store = createStore({
       state.items = payload;
     },
     addToCart(state, payload) {
+      //loop po wszystkich elementach koszyka
+      //jesli jest taki item z payload id to zwiekszamy jego quantity
+      //jesli nie ma to push do koszyka
+
       state.cart.push(payload);
+    },
+    deleteFromCart(state, payload) {
+      state.cart = state.cart.filter((item) => item.id !== payload);
+    },
+    changeCartItemQuantity(state, payload) {
+      if (payload.mode === "add") {
+        state.cart.forEach((item) => {
+          if (item.id === payload.id) {
+            item.quantity++;
+          }
+        });
+      }
+      if (payload.mode === "odd") {
+        state.cart.forEach((item) => {
+          if (item.id === payload.id) {
+            item.quantity--;
+          }
+        });
+      }
     },
   },
   actions: {
@@ -23,7 +46,6 @@ const store = createStore({
         return false;
       }
       const responseData = await response.json();
-      console.log(responseData);
       context.commit("setItems", responseData);
     },
   },

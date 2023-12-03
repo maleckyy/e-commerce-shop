@@ -1,19 +1,39 @@
 <template>
   <div class="cart-item-wrapper">
+    <font-awesome-icon
+      @click="deleteItem"
+      class="delete-icon"
+      icon="fa-solid fa-trash"
+    />
+    <div class="quantity-wrapper">
+      <font-awesome-icon icon="fa-solid fa-plus" @click="changeQ('add')" />
+      <p class="quantity">{{ item.quantity }}</p>
+      <font-awesome-icon icon="fa-solid fa-minus" @click="changeQ('odd')" />
+    </div>
     <div class="image-container">
       <img :src="item.image" :alt="item.title" />
     </div>
     <div class="item-info">
       <div class="item-title">{{ item.title }}</div>
       <div class="item-cat">{{ item.category }}</div>
-      <div class="item-price">${{ item.price }}</div>
+      <div class="item-price">${{ item.price * item.quantity }}</div>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   props: ["item"],
+  methods: {
+    deleteItem() {
+      this.$store.commit("deleteFromCart", this.item.id);
+    },
+    changeQ(mode) {
+      this.$store.commit("changeCartItemQuantity", {
+        mode: mode,
+        id: this.item.id,
+      });
+    },
+  },
 };
 </script>
 
@@ -30,7 +50,8 @@ export default {
   max-height: 200px;
 }
 .image-container img {
-  max-height: 100px;
+  height: 100px;
+  width: 70px;
   margin-right: 2rem;
 }
 .item-info {
@@ -57,5 +78,28 @@ export default {
   font-size: 1.2rem;
   letter-spacing: -0.7px;
   justify-self: flex-end;
+}
+.delete-icon {
+  color: red;
+  font-size: 1.2rem;
+  transition: all 0.2s;
+}
+.delete-icon:hover {
+  transform: scale(1.08);
+}
+.quantity-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  margin: 0 1.3rem;
+  padding: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.068);
+  border-radius: 20px;
+}
+.quantity {
+  font-weight: bold;
+  font-family: var(--font-mont);
 }
 </style>

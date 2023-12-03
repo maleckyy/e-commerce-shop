@@ -9,8 +9,11 @@ import {
   faCartShopping,
   faCartPlus,
   faCircleInfo,
+  faTrash,
+  faPlus,
+  faMinus,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faCartShopping, faCartPlus, faCircleInfo);
+library.add(faCartShopping, faCartPlus, faCircleInfo, faTrash, faPlus, faMinus);
 const app = createApp(App);
 
 app.component("font-awesome-icon", FontAwesomeIcon);

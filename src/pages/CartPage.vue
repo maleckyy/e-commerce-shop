@@ -15,7 +15,7 @@
     </div>
     <hr v-if="!isCartEmpty" />
     <button v-if="!isCartEmpty">Order</button>
-    <div class="info">Your cart is empty.</div>
+    <div v-if="isCartEmpty" class="info">Your cart is empty.</div>
   </div>
 </template>
 
@@ -27,7 +27,10 @@ export default {
   },
   computed: {
     allItemsValue() {
-      return 10;
+      let res = 0;
+      this.cartItems.forEach((item) => (res += item.price));
+
+      return res;
     },
     cartItems() {
       return this.$store.getters.getCartItems;
@@ -81,7 +84,7 @@ button {
   background-color: var(--color-blue);
   border-radius: 10px;
   border: 0;
-  padding: 0.3rem 2rem;
+  padding: 0.5rem 2rem;
   float: right;
   transition: all 0.2s;
 }

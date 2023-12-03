@@ -32,7 +32,7 @@ export default {
       this.$router.push(`/products/${this.item.id}`);
     },
     addToCart() {
-      this.$store.commit("addToCart", this.item);
+      this.$store.commit("addToCart", { ...this.item, quantity: 1 });
     },
   },
 };
