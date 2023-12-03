@@ -1,6 +1,8 @@
 <template>
   <div class="navbar">
-    <div class="logo">E-SHOP</div>
+    <router-link to="/">
+      <div class="logo">E-SHOP</div>
+    </router-link>
     <ul>
       <li>
         <router-link class="hover-underline-animation" to="/">Home</router-link>
@@ -55,8 +57,8 @@ ul {
 }
 li {
   font-family: var(--font-mont);
-  font-weight: 600;
-  font-size: 1.4rem;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 a {
   text-decoration: none;
@@ -72,7 +74,7 @@ div.logo {
   font-family: "Dhurjati", sans-serif;
 }
 .icon {
-  transition: all 0.2s;
+  transition: all 0.02s;
 }
 .icon:hover {
   transform: scale(1.1);

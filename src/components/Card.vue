@@ -52,7 +52,6 @@ export default {
   flex-direction: column;
   position: relative;
 }
-
 .img-div {
   align-self: center;
   display: flex;
@@ -117,7 +116,7 @@ button:hover {
 }
 .info:hover {
   color: var(--color-blue-hover);
-  transform: scale(1.02);
+  transform: scale(1.06);
 }
 p {
   font-family: var(--font-mont);
