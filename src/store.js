@@ -57,7 +57,9 @@ const store = createStore({
       return state.cart;
     },
     getCartItemsCount(state) {
-      return state.cart.length;
+      let count = 0;
+      state.cart.forEach((item) => (count += item.quantity));
+      return count;
     },
   },
 });
