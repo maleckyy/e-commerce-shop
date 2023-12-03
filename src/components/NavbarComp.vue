@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <div class="logo">LOGO</div>
+    <div class="logo">E-SHOP</div>
     <ul>
       <li>
         <router-link class="hover-underline-animation" to="/">Home</router-link>
@@ -43,8 +43,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  /* background: var(--color-blue); */
+  padding: 0.5rem 2rem;
   max-width: 100%;
 }
 ul {
@@ -68,7 +67,9 @@ a:hover {
   color: var(--color-blue);
 }
 div.logo {
-  color: red;
+  color: var(--color-black);
+  font-size: 2rem;
+  font-family: "Dhurjati", sans-serif;
 }
 .icon {
   transition: all 0.2s;

@@ -28,9 +28,9 @@ export default {
   computed: {
     allItemsValue() {
       let res = 0;
-      this.cartItems.forEach((item) => (res += item.price));
+      this.cartItems.forEach((item) => (res += item.price * item.quantity));
 
-      return res;
+      return res.toFixed(2);
     },
     cartItems() {
       return this.$store.getters.getCartItems;
