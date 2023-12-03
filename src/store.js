@@ -12,11 +12,16 @@ const store = createStore({
       state.items = payload;
     },
     addToCart(state, payload) {
-      //loop po wszystkich elementach koszyka
-      //jesli jest taki item z payload id to zwiekszamy jego quantity
-      //jesli nie ma to push do koszyka
-
-      state.cart.push(payload);
+      const res = state.cart.find((item) => item.id === payload.id);
+      if (res) {
+        state.cart.forEach((item) => {
+          if (item.id === payload.id) {
+            item.quantity++;
+          }
+        });
+      } else {
+        state.cart.push(payload);
+      }
     },
     deleteFromCart(state, payload) {
       state.cart = state.cart.filter((item) => item.id !== payload);
@@ -32,7 +37,7 @@ const store = createStore({
       if (payload.mode === "odd") {
         state.cart.forEach((item) => {
           if (item.id === payload.id) {
-            item.quantity--;
+            if (item.quantity > 1) item.quantity--;
           }
         });
       }

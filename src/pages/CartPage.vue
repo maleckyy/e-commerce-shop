@@ -51,6 +51,7 @@ export default {
   width: 100%;
   max-width: 1080px;
   margin: 0 auto;
+  padding-bottom: 50px;
 }
 .title {
   font-family: var(--font-play);
