@@ -66,6 +66,10 @@ const store = createStore({
       state.cart.forEach((item) => (count += item.quantity));
       return count;
     },
+    getItemById: (state) => (id) => {
+      const res = state.items.find((item) => item.id == id);
+      return res;
+    },
   },
 });
 
