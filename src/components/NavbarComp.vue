@@ -34,11 +34,6 @@ export default {
       }
     },
   },
-  watch: {
-    itemsCount(newValue, _) {
-      console.log(newValue);
-    },
-  },
 };
 </script>
 
