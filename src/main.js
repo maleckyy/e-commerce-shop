@@ -12,8 +12,17 @@ import {
   faTrash,
   faPlus,
   faMinus,
+  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faCartShopping, faCartPlus, faCircleInfo, faTrash, faPlus, faMinus);
+library.add(
+  faCartShopping,
+  faCartPlus,
+  faCircleInfo,
+  faTrash,
+  faPlus,
+  faMinus,
+  faArrowLeft
+);
 const app = createApp(App);
 
 app.component("font-awesome-icon", FontAwesomeIcon);

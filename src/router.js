@@ -10,7 +10,7 @@ const router = createRouter({
     { path: "", component: HomePage },
     { path: "/cart", component: CartPage },
     // { path: "/register", component: RegisterPage },
-    { path: "/products/:id", component: ProductDetail, props: true },
+    { path: "/products/:id", component: ProductDetail },
     // // { path: "/cos/:id", component: variable, props: true, children: [] },
     { path: "/:notFound(.*)", component: NotFound },
   ],

@@ -5,7 +5,7 @@
       class="info"
       icon="fa-solid fa-circle-info"
     />
-    <div class="img-div">
+    <div class="img-div" @click="navigateToDetails">
       <img :src="item.image" :alt="item.title" />
     </div>
     <div class="item-details">
