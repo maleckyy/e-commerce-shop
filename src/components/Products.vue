@@ -30,7 +30,7 @@ export default {
       return this.$store.getters.getItems;
     },
     isLoading() {
-      this.$store.getters.getLoadingStatus;
+      return this.$store.getters.getLoadingStatus;
     },
   },
   created() {
@@ -97,6 +97,7 @@ export default {
   width: 64px;
   height: 64px;
   margin: 8px;
+  margin-top: 100px;
   border: 8px solid #f4f4f4;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
