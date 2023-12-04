@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <button class="btn-back" @click="$router.back()">
+    <button class="btn-back" @click="$router.push('../')">
       <font-awesome-icon icon="fa-solid fa-arrow-left" /> Go back
     </button>
 
@@ -96,6 +96,7 @@ export default {
 }
 img {
   width: 100%;
+  height: 100%;
 }
 .content {
   display: flex;
@@ -109,6 +110,7 @@ img {
   font-family: var(--font-play);
   font-size: 3rem;
   line-height: 120%;
+  width: 100%;
 }
 .price {
   font-weight: 500;
@@ -125,9 +127,10 @@ img {
 }
 .btn-back {
   background-color: transparent;
+  font-family: var(--font-mont);
   border: none;
   font-size: 1rem;
-  font-weight: 200;
+  font-weight: 500;
   transition: all 0.2s;
 }
 .btn-back:hover {
@@ -164,9 +167,64 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.icon-wrapper:hover {
+  transform: scale(1.19);
+  color: var(--color-blue-hover);
+}
+.icon-wrapper:active {
+  transform: scale(0.95);
+  color: var(--color-blue);
 }
 .quantity {
+  cursor: default;
   font-family: var(--font-mont);
   font-weight: 700;
+  width: 30px;
+  text-align: center;
+}
+@media only screen and (max-width: 1150px) {
+  .wrapper {
+    padding: 0 2rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    padding: 0 1.2rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .price {
+    font-size: 1.5rem;
+  }
+  .actions {
+    transform: scale(1.2);
+  }
+}
+@media only screen and (max-width: 560px) {
+  .product {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .img-container {
+    max-width: 80%;
+    max-height: 380px;
+  }
+  .actions {
+    align-self: center;
+    margin: 2rem 0;
+  }
+  .desc {
+    max-width: 100%;
+  }
+  .add {
+    align-self: center;
+    padding: 1rem;
+    font-size: 1.3rem;
+  }
 }
 </style>

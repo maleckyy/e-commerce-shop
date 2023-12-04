@@ -87,6 +87,7 @@ li:hover {
   .content {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
   }
 }
 @media only screen and (max-width: 330px) {

@@ -69,7 +69,7 @@ export default {
 }
 .value {
   text-align: right;
-  padding: 0.4rem 0;
+  padding: 0.9rem 0;
   font-family: var(--font-mont);
   color: var(--color-black);
   font-size: 1.2rem;

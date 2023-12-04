@@ -5,6 +5,9 @@ import CartPage from "./pages/CartPage.vue";
 import ProductDetail from "./pages/ProductDetail.vue";
 
 const router = createRouter({
+  scrollBehavior() {
+    return { top: 0 };
+  },
   history: createWebHashHistory(),
   routes: [
     { path: "", component: HomePage },
