@@ -41,7 +41,7 @@ export default {
 
 <style scoped>
 .products-container {
-  max-width: 1080px;
+  max-width: 1420px;
   width: 100%;
   margin: 0 auto;
   display: flex;
