@@ -36,12 +36,6 @@ export default {};
           <li>Security</li>
         </ul>
       </div>
-      <!-- <div class="panel">
-        <div class="panel-title"></div>
-        <ul>
-          <li></li>
-        </ul>
-      </div> -->
     </div>
   </footer>
 </template>
@@ -50,7 +44,7 @@ export default {};
 footer {
   background-color: var(--color-blue);
   width: 100%;
-  padding: 1rem 0;
+  padding: 1.4rem 0 1rem;
   position: absolute;
   bottom: 0;
 }
@@ -83,5 +77,21 @@ li {
 }
 li:hover {
   transform: translateX(5px);
+}
+@media only screen and (max-width: 1180px) {
+  .content {
+    padding: 0 2rem;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 330px) {
+  .content {
+    padding: 0 0.5rem;
+  }
 }
 </style>
