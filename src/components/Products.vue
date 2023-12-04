@@ -2,7 +2,13 @@
   <div class="products-container">
     <div class="title">Featured Products</div>
     <div class="sub-title">Check out our latest products!</div>
-    <div class="items-wrapper">
+    <div v-if="isLoading" class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div v-if="!isLoading" class="items-wrapper">
       <card v-for="item in items" :item="item" :key="item.id"></card>
     </div>
   </div>
@@ -22,6 +28,9 @@ export default {
   computed: {
     items() {
       return this.$store.getters.getItems;
+    },
+    isLoading() {
+      this.$store.getters.getLoadingStatus;
     },
   },
   created() {
@@ -74,6 +83,45 @@ export default {
     font-size: 0.9rem;
   }
 }
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #f4f4f4;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--color-blue-hover) transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
 @media only screen and (max-width: 560px) {
+  .lds-ring {
+    transform: scale(0.7);
+  }
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>

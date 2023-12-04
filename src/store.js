@@ -5,6 +5,7 @@ const store = createStore({
     return {
       items: [],
       cart: [],
+      isItemsLoading: false,
     };
   },
   mutations: {
@@ -45,12 +46,14 @@ const store = createStore({
   },
   actions: {
     async getItemsFromAPI(context) {
+      context.state.isItemsLoading = true;
       const response = await fetch("https://fakestoreapi.com/products");
       if (!response.ok) {
         console.log("Failed to fetch");
         return false;
       }
       const responseData = await response.json();
+      context.state.isItemsLoading = false;
       context.commit("setItems", responseData);
     },
   },
@@ -69,6 +72,9 @@ const store = createStore({
     getItemById: (state) => (id) => {
       const res = state.items.find((item) => item.id == id);
       return res;
+    },
+    getLoadingStatus(state) {
+      return state.isItemsLoading;
     },
   },
 });
