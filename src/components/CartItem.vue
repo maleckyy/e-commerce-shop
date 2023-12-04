@@ -102,4 +102,14 @@ export default {
   font-weight: bold;
   font-family: var(--font-mont);
 }
+@media screen and (max-width: 700px) {
+  .cart-item-wrapper {
+    padding: 0.8rem 1rem;
+  }
+}
+@media screen and (max-width: 420px) {
+  .cart-item-wrapper {
+    padding: 0.8rem 0.5rem;
+  }
+}
 </style>

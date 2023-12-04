@@ -1,9 +1,6 @@
 <template>
   <div class="cart-wrapper">
     <div class="title">Your cart</div>
-    <div v-if="!isCartEmpty" class="value">
-      Cart value: {{ allItemsValue }} $
-    </div>
     <hr v-if="!isCartEmpty" />
     <div class="items-wrapper">
       <!-- lista koszyka -->
@@ -14,6 +11,9 @@
       ></cart-item>
     </div>
     <hr v-if="!isCartEmpty" />
+    <div v-if="!isCartEmpty" class="value">
+      Cart value: {{ allItemsValue }} $
+    </div>
     <button v-if="!isCartEmpty">Order</button>
     <div v-if="isCartEmpty" class="info">Your cart is empty.</div>
   </div>
@@ -102,6 +102,11 @@ button:active {
 @media only screen and (max-width: 1080px) {
   .cart-wrapper {
     padding: 0 2rem;
+  }
+}
+@media only screen and (max-width: 1080px) {
+  .cart-wrapper {
+    padding-bottom: 200px;
   }
 }
 </style>
