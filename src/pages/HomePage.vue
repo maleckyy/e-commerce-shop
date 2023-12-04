@@ -13,7 +13,7 @@ export default {
 
 <style scoped>
 .home-wrapper {
-  max-width: 1080px;
+  max-width: 100vw;
   width: 100%;
   margin: 0 auto;
 }
