@@ -26,4 +26,9 @@ export default {
   position: relative;
   padding-bottom: 200px;
 }
+@media only screen and (max-width: 560px) {
+  .app {
+    padding-bottom: 350px;
+  }
+}
 </style>
