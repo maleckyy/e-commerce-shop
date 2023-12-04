@@ -6,9 +6,17 @@
       icon="fa-solid fa-trash"
     />
     <div class="quantity-wrapper">
-      <font-awesome-icon icon="fa-solid fa-plus" @click="changeQ('add')" />
+      <font-awesome-icon
+        class="icon"
+        icon="fa-solid fa-plus"
+        @click="changeQ('add')"
+      />
       <p class="quantity">{{ item.quantity }}</p>
-      <font-awesome-icon icon="fa-solid fa-minus" @click="changeQ('odd')" />
+      <font-awesome-icon
+        class="icon"
+        icon="fa-solid fa-minus"
+        @click="changeQ('odd')"
+      />
     </div>
     <div class="image-container">
       <img :src="item.image" :alt="item.title" />
@@ -107,9 +115,23 @@ export default {
     padding: 0.8rem 1rem;
   }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
   .cart-item-wrapper {
-    padding: 0.8rem 0.5rem;
+    padding: 0.8rem 0.1rem;
+  }
+  .image-container img {
+    margin-right: 1rem;
+  }
+  .delete-icon {
+    color: red;
+    font-size: 1.4rem;
+    transition: all 0.2s;
+  }
+  .quantity-wrapper {
+    transform: scale(1.1);
+    gap: 2px;
+    margin: 0 0.8rem;
+    padding: 8px;
   }
 }
 </style>
