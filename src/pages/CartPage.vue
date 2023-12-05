@@ -14,7 +14,10 @@
     <div v-if="!isCartEmpty" class="value">
       Cart value: {{ allItemsValue }} $
     </div>
-    <button v-if="!isCartEmpty">Order</button>
+    <button v-if="!isCartEmpty && userId">Order</button>
+    <button v-if="!isCartEmpty && !userId" @click="$router.push('/login')">
+      Login to confirm your order!
+    </button>
     <div v-if="isCartEmpty" class="info">Your cart is empty.</div>
   </div>
 </template>
@@ -41,6 +44,9 @@ export default {
       } else {
         return false;
       }
+    },
+    userId() {
+      return localStorage.getItem("userId");
     },
   },
 };

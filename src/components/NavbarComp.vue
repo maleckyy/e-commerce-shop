@@ -20,6 +20,11 @@
           </div>
         </router-link>
       </li>
+      <li>
+        <router-link to="/login" class="cart-item">
+          <font-awesome-icon class="icon user-item" icon="fa-solid fa-user" />
+        </router-link>
+      </li>
     </ul>
   </div>
 </template>
@@ -137,6 +142,11 @@ div.logo {
   }
   li {
     font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  div.logo {
+    font-size: 1.4rem;
   }
 }
 
