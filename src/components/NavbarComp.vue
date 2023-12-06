@@ -4,9 +4,9 @@
       <div class="logo">E-SHOP</div>
     </router-link>
     <ul>
-      <li>
+      <!-- <li>
         <router-link class="hover-underline-animation" to="/">Home</router-link>
-      </li>
+      </li> -->
       <li>
         <router-link class="hover-underline-animation" to="/">Shop</router-link>
       </li>

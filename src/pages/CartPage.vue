@@ -3,7 +3,6 @@
     <div class="title">Your cart</div>
     <hr v-if="!isCartEmpty" />
     <div class="items-wrapper">
-      <!-- lista koszyka -->
       <cart-item
         v-for="item in cartItems"
         :key="item.id"
@@ -14,7 +13,9 @@
     <div v-if="!isCartEmpty" class="value">
       Cart value: {{ allItemsValue }} $
     </div>
-    <button v-if="!isCartEmpty && userId">Order</button>
+    <button v-if="!isCartEmpty && userId" @click="submitOrder">
+      {{ buttonText }}
+    </button>
     <button v-if="!isCartEmpty && !userId" @click="$router.push('/login')">
       Login to confirm your order!
     </button>
@@ -28,7 +29,19 @@ export default {
   components: {
     CartItem,
   },
+  data() {
+    return {
+      isOrder: false,
+    };
+  },
   computed: {
+    buttonText() {
+      if (this.isOrder) {
+        return "Ordering...";
+      } else {
+        return " Order";
+      }
+    },
     allItemsValue() {
       let res = 0;
       this.cartItems.forEach((item) => (res += item.price * item.quantity));
@@ -47,6 +60,16 @@ export default {
     },
     userId() {
       return localStorage.getItem("userId");
+    },
+  },
+  methods: {
+    submitOrder() {
+      this.isOrder = true;
+      setTimeout(() => {
+        this.$store.commit("clearCart");
+        this.isOrder = false;
+        alert("Order complete");
+      }, 1500);
     },
   },
 };

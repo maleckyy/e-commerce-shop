@@ -10,6 +10,9 @@ export default {
     setItems(state, payload) {
       state.items = payload;
     },
+    clearCart(state) {
+      state.cart = [];
+    },
     addToCart(state, payload) {
       const res = state.cart.find((item) => item.id === payload.id);
       if (res) {
