@@ -11,3 +11,4 @@ Aplikacja webowa sklepu internetowego. Korzysta z danych pobranych z API oraz au
 - dodawanie i usuwanie z koszyka
 - "zamowienie" gdy użytkownik bedzie zalogowany
 
+### Link do strony: https://beautiful-dieffenbachia-fe47ec.netlify.app/
