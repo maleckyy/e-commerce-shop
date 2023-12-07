@@ -1,11 +1,11 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" :class="{ blur: isPhotoOpen }">
     <button class="btn-back" @click="$router.push('../')">
       <font-awesome-icon icon="fa-solid fa-arrow-left" /> Go back
     </button>
 
     <div class="product">
-      <div class="img-container">
+      <div @click="zoomWindow" class="img-container">
         <img :src="item.image" />
       </div>
 
@@ -34,13 +34,24 @@
       </div>
     </div>
   </div>
+  <fullscrean-photo
+    v-if="isPhotoOpen"
+    @closeWindow="zoomWindow"
+    :image="item.image"
+    :alt="item.title"
+  ></fullscrean-photo>
 </template>
 
 <script>
+import FullscreanPhoto from "../components/FullscreanPhoto.vue";
 export default {
+  components: {
+    FullscreanPhoto,
+  },
   data() {
     return {
       quantity: 1,
+      isPhotoOpen: false,
     };
   },
   computed: {
@@ -52,6 +63,9 @@ export default {
     },
   },
   methods: {
+    zoomWindow() {
+      this.isPhotoOpen = !this.isPhotoOpen;
+    },
     async loadData() {
       await this.$store.dispatch("getItemsFromAPI");
     },
@@ -83,6 +97,10 @@ export default {
 .wrapper {
   max-width: 1080px;
   margin: 0 auto;
+  position: relative;
+}
+.blur {
+  filter: blur(2px);
 }
 .product {
   display: flex;
